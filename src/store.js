@@ -7,7 +7,7 @@ const initialState = {
   authLastName: "",
   ingredients: [],
   instructions: [],
-  // recipes: []
+  recipes: []
 }
 
 export const update_recName = "update_recName";
@@ -16,7 +16,7 @@ export const update_authFirstName = "update_authFirstName";
 export const update_authLastName = "update_authLastName";
 export const add_ingredient = "add_ingredient";
 export const add_instruction = "add_instruction";
-// export const add_recipe = "add_recipe";
+export const add_recipe = "add_recipe";
 
 function reducer(state=initialState, action) {
   switch(action.type) {
@@ -52,28 +52,28 @@ function reducer(state=initialState, action) {
         ...state,
         instructions: newInstructions
       }
-    // case add_recipe:
-    //   const {
-    //     name,
-    //     category,
-    //     authorFirst,
-    //     authorLast,
-    //     ingredients,
-    //     instructions
-    //   } = state;
-    //   const recipe = {
-    //     name,
-    //     category,
-    //     authorFirst,
-    //     authorLast,
-    //     ingredients,
-    //     instructions
-    //   };
-    //   const newRecipes = [...state.recipes, recipe]
-    //   return {
-    //     ...state,
-    //     ingredients: newRecipes
-    //   }
+    case add_recipe:
+      const {
+        name,
+        category,
+        authorFirst,
+        authorLast,
+        ingredients,
+        instructions
+      } = state;
+      const recipe = {
+        name,
+        category,
+        authorFirst,
+        authorLast,
+        ingredients,
+        instructions
+      };
+      const newRecipes = [...state.recipes, recipe]
+      return {
+        ...state,
+        ingredients: newRecipes
+      }
     default: return state;
   }
 }
