@@ -6,9 +6,10 @@ import "./Name.css";
 class Name extends Component {
   constructor(props) {
     super(props);
+    const reduxState = store.getState();
     this.state = {
-      name: '',
-      category: ''
+      name: reduxState.recName,
+      category: reduxState.recCategory
     };
   }
   handleNameChange(nameVal) {
