@@ -2,11 +2,15 @@ import { createStore } from "redux";
 
 const initialState = {
   recName: "",
-  recCategory: ""
+  recCategory: "",
+  authFirstName: "",
+  authLastName: ""
 }
 
 export const update_recName = "update_recName";
 export const update_recCategory = "update_recCategory";
+export const update_authFirstName = "update_authFirstName";
+export const update_authLastName = "update_authLastName";
 
 function reducer(state=initialState, action) {
   switch(action.type) {
@@ -19,6 +23,16 @@ function reducer(state=initialState, action) {
       return {
         ...state,
         recCategory: action.payload
+      }
+    case update_authFirstName:
+      return {
+        ...state,
+        authFirstName: action.payload
+      }
+    case update_authLastName:
+      return {
+        ...state,
+        authLastName: action.payload
       }
     default: return state;
   }
