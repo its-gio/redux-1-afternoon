@@ -1,12 +1,12 @@
-import createStore from "redux";
+import { createStore } from "redux";
 
 const initialState = {
   recName: "",
   recCategory: ""
 }
 
-const update_recName = "update_recName";
-const update_recCategory = "update_recCategory";
+export const update_recName = "update_recName";
+export const update_recCategory = "update_recCategory";
 
 function reducer(state=initialState, action) {
   switch(action.type) {
