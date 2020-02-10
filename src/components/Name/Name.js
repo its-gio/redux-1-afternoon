@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import store, {update_recName, update_recCategory} from "../../store";
 import "./Name.css";
 
 class Name extends Component {
@@ -23,6 +24,15 @@ class Name extends Component {
   }
   saveChanges() {
     // Send data to Redux state
+    store.dispatch({
+      type: update_recName,
+      payload: this.state.name
+    })
+
+    store.dispatch({
+      type: update_recCategory,
+      payload: this.state.category
+    })
   }
   render() {
     return (
