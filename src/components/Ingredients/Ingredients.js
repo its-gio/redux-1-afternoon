@@ -19,7 +19,6 @@ class Ingredients extends Component {
     })
   }
 
-
   handleChange(val) {
     this.setState({
       input: val

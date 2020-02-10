@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import store, { update_authFirstName, update_authLastName } from "../../store"
+import store, { update_authorFirst, update_authorLast } from "../../store"
 import './Author.css';
 
 class Author extends Component {
@@ -8,8 +8,8 @@ class Author extends Component {
     super(props);
     const reduxState = store.getState();
     this.state = {
-      authorFirst: reduxState.authFirstName,
-      authorLast: reduxState.authLastName
+      authorFirst: reduxState.authorFirst,
+      authorLast: reduxState.authorLast
     };
   }
 
@@ -27,11 +27,11 @@ class Author extends Component {
   saveChanges() {
     // Send data to Redux state
     store.dispatch({
-      type: update_authFirstName,
+      type: update_authorFirst,
       payload: this.state.authorFirst
     })
     store.dispatch({
-      type: update_authLastName,
+      type: update_authorLast,
       payload: this.state.authorLast
     })
   }

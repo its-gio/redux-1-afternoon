@@ -3,8 +3,8 @@ import "./RecipeCard.css";
 
 let RecipeCard = props => {
   const {
-    name,
-    category,
+    recName,
+    recCategory,
     authorFirst,
     authorLast,
     ingredients,
@@ -19,8 +19,8 @@ let RecipeCard = props => {
   return (
     <div className="RecipeCard">
       <div className="title_container">
-        <h2>{name}</h2>
-        <p>#{category}</p>
+        <h2>{recName}</h2>
+        <p>#{recCategory}</p>
       </div>
       <p>
         by {authorFirst} {authorLast}

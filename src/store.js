@@ -3,8 +3,8 @@ import { createStore } from "redux";
 const initialState = {
   recName: "",
   recCategory: "",
-  authFirstName: "",
-  authLastName: "",
+  authorFirst: "",
+  authorLast: "",
   ingredients: [],
   instructions: [],
   recipes: []
@@ -12,8 +12,8 @@ const initialState = {
 
 export const update_recName = "update_recName";
 export const update_recCategory = "update_recCategory";
-export const update_authFirstName = "update_authFirstName";
-export const update_authLastName = "update_authLastName";
+export const update_authorFirst = "update_authorFirst";
+export const update_authorLast = "update_authorLast";
 export const add_ingredient = "add_ingredient";
 export const add_instruction = "add_instruction";
 export const add_recipe = "add_recipe";
@@ -30,15 +30,15 @@ function reducer(state=initialState, action) {
         ...state,
         recCategory: action.payload
       }
-    case update_authFirstName:
+    case update_authorFirst:
       return {
         ...state,
-        authFirstName: action.payload
+        authorFirst: action.payload
       }
-    case update_authLastName:
+    case update_authorLast:
       return {
         ...state,
-        authLastName: action.payload
+        authorLast: action.payload
       }
     case add_ingredient:
       const newIngredient = [...state.ingredients, action.payload]
@@ -54,25 +54,26 @@ function reducer(state=initialState, action) {
       }
     case add_recipe:
       const {
-        name,
-        category,
+        recName,
+        recCategory,
         authorFirst,
         authorLast,
         ingredients,
         instructions
       } = state;
       const recipe = {
-        name,
-        category,
+        recName,
+        recCategory,
         authorFirst,
         authorLast,
         ingredients,
         instructions
       };
       const newRecipes = [...state.recipes, recipe]
+      console.log(state)
       return {
         ...state,
-        ingredients: newRecipes
+        recipes: newRecipes
       }
     default: return state;
   }
